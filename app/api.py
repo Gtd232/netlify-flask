@@ -12,7 +12,7 @@ def home():
 @app.route('/api/get/stuff', methods=['GET'])
 def api_get_stuff():
     stuff = [s.json() for s in Stuff.query.all()]
-    print('getting stuff: {}'.format(stuff))
+    print(f'getting stuff: {stuff}')
     return jsonify(stuff)
 
 
@@ -31,6 +31,6 @@ def api_add_stuff():
     db.session.add(new_stuff)
     db.session.commit()
 
-    print('adding stuff: {}'.format(new_stuff.json()))
+    print(f'adding stuff: {new_stuff.json()}')
     return jsonify(new_stuff.json())
 
